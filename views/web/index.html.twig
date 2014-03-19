@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Bienvenido a Maps Web{% endblock %}
+
+{% block body %}
+<h1>Bienvenido a Maps Web</h1>
+
+<ul>
+    {% for place in places %}
+        <li>
+            <a href="map/{{place.id}}">{{place.name}}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

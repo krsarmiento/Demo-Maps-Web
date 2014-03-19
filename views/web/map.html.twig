@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{place.name}} | Maps Web{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+  <h1>{{place.name}}</h1>
+    <a class="btn btn-warning" href="..">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Volver
+    </a>
+</div>
+
+
+
+{% include 'include/embed.html.twig' with {'lat': place.lat, 'long': place.long} %}
+
+<br/>
+
+<h3>Otros sitios que te podrían interesar</h3>
+
+<div class="list-group">
+
+    {% for p in places %}
+        {% if place.id != p.id %}
+            <a href="{{p.id}}" class="list-group-item">{{p.name}}</a>
+        {% endif %}
+    {% endfor %}
+    
+</div>
+
+{% endblock %}
